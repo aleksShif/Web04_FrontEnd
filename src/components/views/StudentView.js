@@ -16,10 +16,10 @@ const StudentView = (props) => {
       {student.imageUrl &&
         <img src={student.imageUrl}></img>
       }
-      {student.campus &&(
+      {student.campus ?(
                 <Link to={`/campus/${student.campusId}`}>
                   <h3>{student.campus.name}</h3>
-                 </Link>)
+                 </Link>) : <h3>Not enrolled in a campus</h3>
       } 
       <h3>Email: {student.email}</h3>
       
