@@ -9,14 +9,33 @@ import "./style.css";
 
 // Take in props data to construct the component
 const CampusView = (props) => {
-  const {campus} = props;
+  const {campus, deleteCampus} = props;
   
+  if(!campus.students.length){
+    return(
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+      <h1>{campus.name}</h1>
+      <p>{campus.address}</p>
+      <p>{campus.description}</p>
+      {campus.imageUrl &&
+        <img src={campus.imageUrl} alt={campus.name}></img>
+      }   
+      <div className="card">
+        <h2>No students</h2>
+      </div>
+      </div>
+    );
+  }
+
   // Render a single Campus view with list of its students
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
       <h1>{campus.name}</h1>
       <p>{campus.address}</p>
       <p>{campus.description}</p>
+      {campus.imageUrl &&
+        <img src={campus.imageUrl} alt={campus.name}></img>
+      }   
       <div className="card">
         <h2>Students</h2>
         {campus.students.map( student => {
@@ -30,6 +49,15 @@ const CampusView = (props) => {
           );
         })}
       </div>
+      <div className="btn-container">
+        <Link to ={`/campuses`}>
+          <button className="btn accent" onClick={() => deleteCampus(campus.id)}>Delete Campus</button>
+        </Link>
+        <Link to ={`/editcampus/${campus.id}`}>
+          <button className="btn primary">Edit</button>
+        </Link>
+          </div>
+          <hr/>
     </div>
   );
 };

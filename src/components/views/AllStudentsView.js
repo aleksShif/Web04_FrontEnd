@@ -32,10 +32,19 @@ const AllStudentsView = (props) => {
               <Link to={`/student/${student.id}`}>
                 <h2>{name}</h2>
               </Link>
+              {student.campus &&(
+                <Link to={`/campus/${student.campusId}`}>
+                  <h3>{student.campus.name}</h3>
+                 </Link>)
+              }
               
+              <h3>Email: {student.email}</h3>
+              {student.gpa &&
+                 <h3>GPA: {student.gpa}</h3>
+              } 
               <div className="btn-container">
                 <button className="btn accent" onClick={() => deleteStudent(student.id)}>Delete</button>
-                <Link to ={`editstudent/${student.id}`}>
+                <Link to ={`/editstudent/${student.id}`}>
                 <button className="btn primary">Edit</button>
                 </Link>
               </div>

@@ -45,7 +45,9 @@ class EditStudentContainer extends Component {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         email: this.state.email,
-        campusId: this.state.campusId
+        campusId: this.state.campusId,
+        imageUrl: this.state.imageUrl,
+        gpa: this.state.gpa
     };
     
     // Edit student in back-end database
@@ -57,8 +59,10 @@ class EditStudentContainer extends Component {
       lastname: "",
       email: "", 
       campusId: null, 
+      imageUrl: "",
+      gpa: Number,
       redirect: true, 
-      redirectId: id,
+      redirectId: id
     });
   }
 
