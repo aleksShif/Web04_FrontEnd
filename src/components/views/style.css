@@ -295,7 +295,82 @@
   .card-link svg {
     margin-left: 0.25rem;
   }
+
+  /* ===== FORM LAYOUT ===== */
+
+  .form-container {
+    width: 500px;
+    background-color: var(--color-background); /* Cream background */
+    border-radius: var(--border-radius-md); /* Rounded corners */
+    margin: 2rem auto; /* Center the form with margin */
+    box-shadow: var(--shadow-md); /* Subtle shadow for depth */
+    padding: 2rem; /* Add spacing inside the form */
+    transition: var(--transition-default); /* Smooth hover effects */
+  }
   
+  .form-title {
+    background-color: var(--color-secondary); /* Sage green */
+    color: var(--color-white); /* White text */
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0; /* Rounded top corners */
+    margin-bottom: 1.5rem;
+  }
+
+  .form-row {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 1rem; 
+  }
+
+  .form-row label {
+    width: 120px; 
+    font-weight: bold; 
+    color: var(--color-gray-800); 
+    line-height: 1.5;
+  }
+  
+  .form-container input[type="text"] {
+    flex: 1;
+    width: auto; /* Full width */
+    padding: 0.5rem; /* Add padding inside the input */
+    margin-bottom: 1rem; /* Space between inputs */
+    border: 1px solid var(--color-gray-200); /* Light gray border */
+    border-radius: var(--border-radius-sm); /* Slightly rounded corners */
+    line-height: 1.5;
+    font-size: 1rem; /* Font size */
+    color: var(--color-gray-800); /* Dark gray text */
+    background-color: var(--color-white); /* White background */
+    box-shadow: var(--shadow-sm); /* Subtle shadow */
+    transition: var(--transition-default); /* Smooth focus effect */
+    vertical-align: middle;
+  }
+
+  .form-container input[type="text"]:focus {
+    outline: none; /* Remove default outline */
+    border-color: var(--color-primary); /* Forest green border on focus */
+    box-shadow: 0 0 5px var(--color-primary); /* Glow effect */
+  }
+
+  .form-container button[type="submit"] {
+    width: 100%; /* Full width button */
+    padding: 0.75rem; /* Add padding */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: var(--color-white); /* White text */
+    background-color: var(--color-primary); /* Forest green background */
+    border: none; /* Remove border */
+    border-radius: var(--border-radius-sm); /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: var(--transition-default); /* Smooth hover effect */
+  }
+  
+  .form-container button[type="submit"]:hover {
+    background-color: var(--color-accent); /* Warm terracotta on hover */
+    box-shadow: var(--shadow-lg); /* Larger shadow on hover */
+  }
   /* ===== GRID LAYOUT ===== */
   .grid {
     display: grid;
