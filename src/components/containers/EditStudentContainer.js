@@ -10,10 +10,10 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import NewStudentView from '../views/NewStudentView';
-import { addStudentThunk } from '../../store/thunks';
+import EditStudentView from '../views/EditStudentView';
+import { editStudentThunk } from '../../store/thunks';
 
-class NewStudentContainer extends Component {
+class EditStudentContainer extends Component {
   // Initialize state
   constructor(props){
     super(props);
@@ -39,16 +39,17 @@ class NewStudentContainer extends Component {
   // Take action after user click the submit button
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
-
+    const id = this.props.match.params.id;
     let student = {
+        id: id,
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         email: this.state.email,
         campusId: this.state.campusId
     };
     
-    // Add new student in back-end database
-    let newStudent = await this.props.addStudent(student);
+    // Edit student in back-end database
+    await this.props.editStudent(student);
 
     // Update state, and trigger redirect to show the new student
     this.setState({
@@ -57,7 +58,7 @@ class NewStudentContainer extends Component {
       email: "", 
       campusId: null, 
       redirect: true, 
-      redirectId: newStudent.id
+      redirectId: id,
     });
   }
 
@@ -77,7 +78,7 @@ class NewStudentContainer extends Component {
     return (
       <div>
         <Header />
-        <NewStudentView 
+        <EditStudentView 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}      
         />
@@ -91,11 +92,11 @@ class NewStudentContainer extends Component {
 // The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
 const mapDispatch = (dispatch) => {
     return({
-        addStudent: (student) => dispatch(addStudentThunk(student)),
+        editStudent: (student) => dispatch(editStudentThunk(student)),
     })
 }
 
 // Export store-connected container by default
 // NewStudentContainer uses "connect" function to connect to Redux Store and to read values from the Store 
 // (and re-read the values when the Store State updates).
-export default connect(null, mapDispatch)(NewStudentContainer);
+export default connect(null, mapDispatch)(EditStudentContainer);
