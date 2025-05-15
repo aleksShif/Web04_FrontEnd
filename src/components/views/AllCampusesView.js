@@ -6,6 +6,7 @@ It constructs a React component to display all campuses.
 ================================================== */
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 const AllCampusesView = (props) => {
   const {allCampuses, deleteCampus} = props;
@@ -15,7 +16,7 @@ const AllCampusesView = (props) => {
     <div>
     <p>There are no campuses.</p>
      <Link to={`newcampus`}>
-        <button>Add New Campus</button>
+        <button className="btn primary">Add New Campus</button>
     </Link>
     </div>
 
@@ -28,23 +29,25 @@ const AllCampusesView = (props) => {
       <h1>All Campuses</h1>
 
       {allCampuses.map((campus) => (
-        <div key={campus.id}>
+        <div key={campus.id} style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
           <Link to={`/campus/${campus.id}`}>
             <h2>{campus.name}</h2>
           </Link>
           <h4>campus id: {campus.id}</h4>
           <p>{campus.address}</p>
           <p>{campus.description}</p>
-          <button onClick={() => deleteCampus(campus.id)}>Delete Campus</button>
-          <Link to ={`editcampus/${campus.id}`}>
-          <button>Edit</button>
-          </Link>
+          <div className="btn-container">
+            <button className="btn accent" onClick={() => deleteCampus(campus.id)}>Delete Campus</button>
+            <Link to ={`editcampus/${campus.id}`}>
+            <button className="btn primary">Edit</button>
+            </Link>
+          </div>
           <hr/>
         </div>
       ))}
       <br/>
       <Link to={`newcampus`}>
-        <button>Add New Campus</button>
+        <button className="btn primary">Add New Campus</button>
       </Link>
       <br/><br/>
     </div>

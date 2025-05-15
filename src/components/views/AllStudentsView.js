@@ -14,7 +14,7 @@ const AllStudentsView = (props) => {
     <div>
       <p>There are no students.</p>
       <Link to={`newstudent`}>
-        <button>Add New Student</button>
+        <button className="btn primary">Add New Student</button>
       </Link>
     </div>
     );
@@ -28,14 +28,17 @@ const AllStudentsView = (props) => {
       {students.map((student) => {
           let name = student.firstname + " " + student.lastname;
           return (
-            <div key={student.id}>
+            <div key={student.id} style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
               <Link to={`/student/${student.id}`}>
                 <h2>{name}</h2>
               </Link>
-              <button onClick={() => deleteStudent(student.id)}>Delete</button>
-              <Link to ={`editstudent/${student.id}`}>
-              <button>Edit</button>
-              </Link>
+              
+              <div className="btn-container">
+                <button className="btn accent" onClick={() => deleteStudent(student.id)}>Delete</button>
+                <Link to ={`editstudent/${student.id}`}>
+                <button className="btn primary">Edit</button>
+                </Link>
+              </div>
               <hr/>
             </div>
           );
@@ -43,7 +46,7 @@ const AllStudentsView = (props) => {
       )}
       <br/>
       <Link to={`/newstudent`}>
-        <button>Add New Student</button>
+        <button className="btn primary">Add New Student</button>
       </Link>
       <br/><br/>
     </div>
