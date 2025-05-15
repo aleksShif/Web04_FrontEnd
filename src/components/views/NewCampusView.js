@@ -41,11 +41,11 @@ const NewCampusView = (props) => {
             <input type="text" name="campusId" onChange={(e) => handleChange(e)} />
             <br/>
             <br/> */}
+            <div className="form-row">
             <label style ={{color:'#11153e', fontWeight: 'bold'}}>imageUrl: </label>
             <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
-            <Button variant="contained" color="primary" type="submit">
+            </div>
+            <button variant="contained" color="primary" type="submit">
               Submit
             </button>
             <br/>

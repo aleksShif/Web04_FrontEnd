@@ -32,30 +32,26 @@ const EditStudentView = (props) => {
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Last Name: </label>
             <input type="text" name="lastname" onChange={(e) => handleChange(e)} />
             </div>
-
-<<<<<<< HEAD
+            <div className="form-row">
             <label style ={{color:'#11153e', fontWeight: 'bold'}}>Email: </label>
             <input type="email" name="email" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
+            </div>
+            <div className="form-row">
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
             <input type="text" name="campusId" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
+            </div>
+            <div className="form-row">
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
             <input type="url" name="imageUrl" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
+            </div>
+            <div className="form-row">
             <label style={{color:'#11153e', fontWeight: 'bold'}}>GPA: </label>
             <input type="number" step=".01" min="0" max="4" name="gpa" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
-=======
+            </div>
             <div className="form-row">
               <label style ={{color:'#11153e', fontWeight: 'bold'}}>Email: </label>
               <input type="text" name="email" onChange={(e) => handleChange(e)} />
-              </div>
->>>>>>> 941898da723f05e690145b9bd43c8a9a2c1fb6b8
+            </div>
 
             <div className="form-row">
               <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
@@ -65,8 +61,6 @@ const EditStudentView = (props) => {
             <button type="submit">
               Submit
             </button>
-            <br/>
-            <br/>
           </form>
           </div>
       </div>
